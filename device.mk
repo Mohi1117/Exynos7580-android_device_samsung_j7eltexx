@@ -60,7 +60,8 @@ PRODUCT_COPY_FILES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    lights.universal7580
+    lights.universal7580 \
+		android.hardware.light@2.0-impl
 
 # Media profile
 PRODUCT_COPY_FILES += \
@@ -68,7 +69,8 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    power.universal7580
+    power.universal7580 \
+		android.hardware.power@1.0-impl
 
 # Shims
 PRODUCT_PACKAGES += \
@@ -97,14 +99,82 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 PRODUCT_PACKAGES += \
     SamsungServiceMode
 
+# Gralloc
+		#PRODUCT_PACKAGES += \
+#   gralloc.exynos5
+
+PRODUCT_PACKAGES += \
+      libion \
+     libfimg \
+     libhwc2on1adapter \
+     android.hardware.graphics.allocator@2.0-impl \
+     android.hardware.graphics.allocator@2.0-service \
+     android.hardware.graphics.composer@2.1-impl \
+     android.hardware.graphics.mapper@2.0-impl
+
+ # RenderScript HAL
+ #PRODUCT_PACKAGES += \
+ #    android.hardware.renderscript@1.0-impl
+
+ # DRM
+ #PRODUCT_PACKAGES += \
+ #    android.hardware.drm@1.0-impl
+
+ PRODUCT_PACKAGES += \
+      camera.device@3.2-impl \
+      camera.device@1.0-impl \
+      android.hardware.camera.provider@2.4-impl
+
+ # hardware/samsung/AdvancedDisplay (MDNIE)
+  #PRODUCT_PACKAGES += \
+  #    AdvancedDisplay
+
 # Ril
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
+		android.hardware.radio@1.0 \
+    android.hardware.radio.deprecated@1.0 \
     modemloader
 
 # cpboot-daemon for modem
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ril/sbin/cbd:root/sbin/cbd
+
+# Memory
+PRODUCT_PACKAGES += \
+android.hardware.memtrack@1.0-impl
+libtinycompress \
+android.hardware.audio@2.0-impl \
+ android.hardware.audio.effect@2.0-impl
+
+ # Keymaster
+PRODUCT_PACKAGES += \
+android.hardware.keymaster@3.0-impl
+
+ PRODUCT_PACKAGES += \
+android.hardware.gnss@1.0-impl
+
+PRODUCT_PACKAGES += \
+p2p_supplicant_overlay.conf
+wpa_supplicant_overlay.conf \
+hostapd.accept \
+hostapd.deny \
+hostapd_default.conf \
+libnetcmdiface \
+wpa_supplicant.conf \
+     android.hardware.wifi@1.0-service \
+     wificond \
+     wifiloader
+
+# Bluetooth
+ PRODUCT_PACKAGES += \
+     android.hardware.bluetooth@1.0-impl \
+     libbt-vendor
+
+ # Sensors
+PRODUCT_PACKAGES += \
+  android.hardware.sensors@1.0-impl \
+  android.hardware.vibrator@1.0-impl
 
 # Inherit from Exynos7580-common
 $(call inherit-product, device/samsung/exynos7580-common/device-common.mk)

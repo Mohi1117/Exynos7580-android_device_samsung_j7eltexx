@@ -114,7 +114,7 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">83</integer>
+    <!--    <integer name="config_deviceHardwareKeys">83</integer> -->
 
     <!-- Hardware keys present on the device with the ability to wake, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
@@ -128,7 +128,7 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareWakeKeys">65</integer>
+    <!--    <integer name="config_deviceHardwareWakeKeys">65</integer> -->
 
     <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
          for debouncing the light sensor.  Different constants are used to debounce the light sensor
@@ -232,6 +232,10 @@
     <!-- Power Management: Specifies whether to decouple the interactive state of the
          device from the display on/off state. -->
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
+
+<!--    <bool name="config_samsung_stk">true</bool> -->
+
+<!--    <bool name="config_uiBlurEnabled">true</bool> -->
 
     <!-- Allow screen mirroring/miracast -->
     <bool name="config_enableWifiDisplay">true</bool>

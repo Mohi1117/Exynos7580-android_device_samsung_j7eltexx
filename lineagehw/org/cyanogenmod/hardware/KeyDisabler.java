@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2016 The CyanogenMod Project
- *
+ * Copyright (C) 2016 The Lineageos Project
+ 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.cyanogenmod.hardware;
+package org.lineage.hardware;
 
-import org.cyanogenmod.internal.util.FileUtils;
+import org.lineage.internal.util.FileUtils;
 
 /*
  * Disable capacitive keys

@@ -27,8 +27,21 @@ TARGET_SPECIFIC_HEADER_PATH += $(DEVICE_PATH)/include
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 
+# ADB Legacy Interface
+TARGET_USES_LEGACY_ADB_INTERFACE := true
+
 # Hardware
-BOARD_HARDWARE_CLASS += $(DEVICE_PATH)/cmhw
+BOARD_HARDWARE_CLASS += $(LOCAL_PATH)/lineagehw
+BOARD_HARDWARE_CLASS += hardware/samsung/lineagehw
+
+# Gralloc
+ TARGET_USES_GRALLOC1_ADAPTER := true
+
+# ION
+ TARGET_USES_ION := true
+
+# Charger
+WITH_LINEAGE_CHARGER := false
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_sec
@@ -53,6 +66,8 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 -
 # CPUsets
 ENABLE_CPUSETS := false
 
+BOARD_KERNEL_IMAGE_NAME := Image
+
 # Partitions
 BOARD_HAS_NO_MISC_PARTITION := false
 TARGET_USERIMAGES_USE_EXT4 := true
@@ -73,6 +88,12 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.samsungexynos7580
 # Radio
 BOARD_RIL_CLASS := ../../../$(DEVICE_PATH)/ril
 BOARD_MODEM_TYPE := tss310
+
+#Hidl
+DEVICE_MANIFEST_FILE := device/samsung/j7eltexx/manifest.xml
+
+# SELinux
+#BOARD_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
 
 # inherit from the proprietary version
 -include vendor/samsung/j7eltexx/BoardConfigVendor.mk
