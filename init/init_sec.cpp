@@ -64,10 +64,10 @@ void set_sim_info ()
 	
 	if (file != NULL) {
 		simslot_count[0] = fgetc(file);
-		property_set("ro.multisim.simslotcount", simslot_count);
+		android::init::property_set("ro.multisim.simslotcount", simslot_count);
 		if(strcmp(simslot_count, "2") == 0) {
-			property_set("rild.libpath2", "/system/lib/libsec-ril-dsds.so");
-			property_set("persist.radio.multisim.config", "dsds");
+			android::init::property_set("rild.libpath2", "/system/lib/libsec-ril-dsds.so");
+			android::init::property_set("persist.radio.multisim.config", "dsds");
 		}
 		fclose(file);
 	}
@@ -83,22 +83,22 @@ void vendor_load_properties()
 
     if (bootloader.find("J700F") != std::string::npos) {
 	/* SM-J700F */
-                property_override("ro.build.fingerprint", "samsung/j7eltexx/j7elte:6.0.1/MMB29K/J700FXXU3BPK1:user/release-keys");
-        property_override("ro.build.description", "j7eltexx-user 6.0.1 MMB29K J700FXXU3BPK1 release-keys");
-        property_override("ro.product.model", "SM-J700F");
-        property_override("ro.product.device", "j7elte");
+                android::init::property_override("ro.build.fingerprint", "samsung/j7eltexx/j7elte:6.0.1/MMB29K/J700FXXU3BPK1:user/release-keys");
+        android::init::property_override("ro.build.description", "j7eltexx-user 6.0.1 MMB29K J700FXXU3BPK1 release-keys");
+        android::init::property_override("ro.product.model", "SM-J700F");
+        android::init::property_override("ro.product.device", "j7elte");
     } else if (bootloader.find("A310M") != std::string::npos) {
 	/* SM-J700M */
-                property_set("ro.build.fingerprint", "samsung/j7eltexx/j7elte:5.1.1/LMY47X/J700MUBU1APA1:user/release-keys");
-        property_set("ro.build.description", "j7eltexx-user 5.1.1 LMY47X J700MUBU1APA1 release-keys");
-        property_set("ro.product.model", "SM-J700M");
-        property_set("ro.product.device", "j7elte");
+                android::init::property_set("ro.build.fingerprint", "samsung/j7eltexx/j7elte:5.1.1/LMY47X/J700MUBU1APA1:user/release-keys");
+        android::init::property_set("ro.build.description", "j7eltexx-user 5.1.1 LMY47X J700MUBU1APA1 release-keys");
+        android::init::property_set("ro.product.model", "SM-J700M");
+        android::init::property_set("ro.product.device", "j7elte");
     } else {
 	/* SM-J700H */
-        property_override("ro.build.fingerprint", "samsung/j7e3gxx/j7e3g:5.1.1/LMY48B/J700HXXU2APC5:user/release-keys");
-        property_override("ro.build.description", "j7e3gxx-user 5.1.1 LMY48B J700HXXU2APC5 release-keys");
-        property_override("ro.product.model", "SM-J700H");
-        property_override("ro.product.device", "j7e3g");
+        android::init::property_override("ro.build.fingerprint", "samsung/j7e3gxx/j7e3g:5.1.1/LMY48B/J700HXXU2APC5:user/release-keys");
+        android::init::property_override("ro.build.description", "j7e3gxx-user 5.1.1 LMY48B J700HXXU2APC5 release-keys");
+        android::init::property_override("ro.product.model", "SM-J700H");
+        android::init::property_override("ro.product.device", "j7e3g");
     }
 
 	set_sim_info();
